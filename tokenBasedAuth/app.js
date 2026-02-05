@@ -5,10 +5,13 @@ const authLogRoutes = require('./routes/authLogRoute');
 const authRoutes = require('./routes/authRoute');
 const todoRoutes = require('./routes/todoRoutes');
 const adminRoutes = require('./routes/adminRoutes');
+const seedAdminUser = require('./utils/seedAdmin');
 
 const app = express();
 
 app.use(express.json());
+
+seedAdminUser();
 
 app.use('/api/auth', authRegRoutes);
 app.use('/api/auth', authLogRoutes);
