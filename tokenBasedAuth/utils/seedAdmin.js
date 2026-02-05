@@ -3,7 +3,6 @@ const { User } = require("../models/user");
 
 const seedAdminUser = async () => {
     try {
-        // Drop old indexes that may conflict with new schema
         try {
             const indexes = await User.collection.getIndexes();
             if (indexes.username_1) {

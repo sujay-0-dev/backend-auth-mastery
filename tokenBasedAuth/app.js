@@ -22,6 +22,6 @@ app.use('/api/auth', authRegRoutes);
 app.use('/api/auth', authLogRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
-app.use('/api/admin', adminRoutes);
+app.use('/', adminRoutes);
 
 module.exports = app;
