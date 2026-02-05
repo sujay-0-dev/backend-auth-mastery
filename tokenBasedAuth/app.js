@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 const authRegRoutes = require('./routes/authRegRoutes');
 const authLogRoutes = require('./routes/authLogRoute');
 const authRoutes = require('./routes/authRoute');
@@ -12,6 +12,11 @@ const app = express();
 app.use(express.json());
 
 seedAdminUser();
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 app.use('/api/auth', authRegRoutes);
 app.use('/api/auth', authLogRoutes);
