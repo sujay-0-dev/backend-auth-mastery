@@ -1,7 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 
-const router = express.Router();    
+const router = express.Router();
 router.post("/refresh-token", (req, res) => {
   const { refreshToken } = req.body;
 
@@ -12,13 +12,13 @@ router.post("/refresh-token", (req, res) => {
   try {
     const decoded = jwt.verify(
       refreshToken,
-      process.env.JWT_REFRESH_SECRET
+      process.env.JWT_REFRESH_TOKEN_SECRET
     );
 
     const newAccessToken = jwt.sign(
       { userId: decoded.userId },
-      process.env.JWT_ACCESS_SECRET,
-      { expiresIn: "15m" }
+      process.env.JWT_ACCESS_TOKEN_SECRET,
+      { expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRATION || '15m' }
     );
 
     res.json({ accessToken: newAccessToken });

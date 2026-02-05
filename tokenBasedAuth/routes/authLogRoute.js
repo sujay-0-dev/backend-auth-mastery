@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post('/login', async (req, res) => {
    try {
-      const { username, password } = req.body;
-      const user = await User.findOne({ username });
+      const { email, password } = req.body;
+      const user = await User.findOne({ email });
       if (!user) {
          return res.status(401).json({ message: "Invalid Credentials!" });
       }
@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
       const accessToken = await jwtUtils.generateAccessToken(user._id);
       const refreshToken = await jwtUtils.generateRefreshToken(user._id);
       res.json({
-         username,
+         user: { id: user._id, fullname: user.fullname, email: user.email, role: user.role },
          accessToken,
          refreshToken
       });
