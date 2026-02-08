@@ -1,0 +1,35 @@
+{
+  "name": "sessionauth",
+  "version": "1.0.0",
+  "description": "A session based authentication backend for To-Do Project",
+  "homepage": "https://github.com/sujay-0-dev/TaskZen-Backend#readme",
+  "bugs": {
+    "url": "https://github.com/sujay-0-dev/TaskZen-Backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sujay-0-dev/TaskZen-Backend.git"
+  },
+  "license": "ISC",
+  "author": "Sujay Barman",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
